@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         //menampilkan reyclerview yang ada pada file layout dengan id reycler view
-
         RecyclerAdapter adapter = new RecyclerAdapter(this);
         //membuat adapter baru untuk reyclerview
         recyclerView.setAdapter(adapter);

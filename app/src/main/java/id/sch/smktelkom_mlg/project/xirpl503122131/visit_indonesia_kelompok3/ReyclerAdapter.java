@@ -1,11 +1,11 @@
 package id.sch.smktelkom_mlg.project.xirpl503122131.visit_indonesia_kelompok3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 /**
  * Created by Rehan on 11/13/2016.
@@ -19,6 +19,8 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     String[] name = {"Sumatra", "Kalimantan", "Sulawesi", "Jawa",
             "Papua"};
+    String[] desc = {"20 Wisata", "10 Wisata", "11 Wisata", "10 Wisata", "10 Wisata"};
+    String[] img = {"@drawable/a1", "@drawable/a2", "@drawable/a3", "@drawable/a4", "@drawable/a5"};
     // menampilkan list item dalam bentuk text dengan tipe data string dengan variable name
 
     LayoutInflater inflater;
@@ -28,7 +30,14 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
             //member aksi saat cardview diklik berdasarkan posisi tertentu
             RecyclerViewHolder vholder = (RecyclerViewHolder) v.getTag();
             int position = vholder.getPosition();
-            Toast.makeText(context, "Menu ini berada di posisi " + position, Toast.LENGTH_LONG).show();
+            if (position == 0 && position < getItemCount()) {
+                Intent intent = new Intent(context, ActivitySumatra.class);
+                context.startActivity(intent);
+            }
+            if (position == 1 && position < getItemCount()) {
+                Intent intent = new Intent(context, KalimantanActivity.class);
+                context.startActivity(intent);
+            }
         }
     };
 
@@ -40,7 +49,6 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflater.inflate(R.layout.item_list, parent, false);
-
         RecyclerViewHolder viewHolder = new RecyclerViewHolder(v);
         return viewHolder;
     }
@@ -50,8 +58,9 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
         holder.tv1.setText(name[position]);
         holder.tv1.setOnClickListener(clickListener);
-        holder.imageView.setOnClickListener(clickListener);
         holder.tv1.setTag(holder);
+        holder.tv2.setText(desc[position]);
+        holder.imageView.setOnClickListener(clickListener);
         holder.imageView.setTag(holder);
 
     }

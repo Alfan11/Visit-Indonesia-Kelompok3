@@ -16,7 +16,6 @@ class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
-
         tv1 = (TextView) itemView.findViewById(R.id.daftar_judul);
         //menampilkan text dari widget CardView pada id daftar_judul
         tv2 = (TextView) itemView.findViewById(R.id.daftar_deskripsi);
